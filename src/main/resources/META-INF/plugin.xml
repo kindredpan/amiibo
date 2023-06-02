@@ -1,0 +1,30 @@
+<idea-plugin>
+    <id>com.pan.amiibo</id>
+    <name>Amiibo</name>
+    <vendor email="kindred@icloud.com" url="http://www.pan.com">pan</vendor>
+
+    <description>amiibo小工具</description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <group id="amiibo" text="Amiibo" popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </group>
+        <action id="SQLParse" class="com.pan.plugins.biz.sqlParse.SqlParseAction" text="SQLParse"
+                description="SQLParse">
+            <add-to-group group-id="amiibo" anchor="first"/>
+        </action>
+        <action id="CamelCase" class="com.pan.plugins.biz.camelCase.CamelCaseAction" text="CamelCase" description="CamelCase">
+            <add-to-group group-id="amiibo" anchor="after" relative-to-action="SQLParse"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt K"/>
+        </action>
+    </actions>
+
+</idea-plugin>
